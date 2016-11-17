@@ -1,4 +1,6 @@
-# Instant2fa
+# instant2fa-java
+
+A Java / Scala client for [Instant2FA](https://instant2fa.com).
 
 ## Installation
 

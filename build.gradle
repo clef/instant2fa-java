@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.github.jasminb:jsonapi-converter:0.5'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'com.instant2fa'
+            artifactId 'instant2fa'
+            version '0.0.2'
+
+            from components.java
+        }
+    }
+}

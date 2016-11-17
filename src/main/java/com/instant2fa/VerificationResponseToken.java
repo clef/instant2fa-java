@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
-/**
- * Created by mark on 11/16/16.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Type("verification-response-tokens")
 public class VerificationResponseToken {

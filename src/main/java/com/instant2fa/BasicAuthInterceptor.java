@@ -7,9 +7,6 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by mark on 11/15/16.
- */
 class BasicAuthInterceptor implements Interceptor {
     private final String accessSecret;
     private final String accessKey;

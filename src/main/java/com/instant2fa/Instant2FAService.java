@@ -8,9 +8,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-/**
- * Created by mark on 11/15/16.
- */
 interface Instant2FAService {
     @POST("user-access-tokens/")
     Call<JSONAPIDocument<UserAccessToken>> createUserAccessToken(@Body JSONAPIDocument<UserAccessToken> userAccessToken);

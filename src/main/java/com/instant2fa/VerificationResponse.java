@@ -7,9 +7,6 @@ import com.github.jasminb.jsonapi.annotations.Type;
 
 import java.util.Objects;
 
-/**
- * Created by mark on 11/15/16.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Type("verification-responses")
 class VerificationResponse {

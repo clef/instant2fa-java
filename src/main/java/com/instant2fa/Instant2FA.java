@@ -43,6 +43,8 @@ public class Instant2FA {
     }
 
     public String createSettings(String distinctID) throws IOException, APIException {
+        assertNotEmpty(distinctID);
+
         UserAccessToken token = new UserAccessToken();
         token.distinctID = distinctID;
 
@@ -55,6 +57,8 @@ public class Instant2FA {
     }
 
     public String createVerification(String distinctID) throws IOException, MFANotEnabledException, APIException {
+        assertNotEmpty(distinctID);
+
         VerificationRequest request = new VerificationRequest();
         request.distinctID = distinctID;
 
@@ -69,6 +73,8 @@ public class Instant2FA {
     }
 
     public boolean confirmVerification(String distinctID, String tokenString) throws IOException, VerificationMismatchException, VerificationFailedException, APIException {
+        assertNotEmpty(distinctID);
+
         VerificationResponseToken token = new VerificationResponseToken(tokenString);
 
         Call<JSONAPIDocument<VerificationResponse>> call = this.api.getVerificationResponse(token.id);
@@ -90,13 +96,21 @@ public class Instant2FA {
         return response.isSuccessful();
     }
 
+    private void assertNotEmpty(String str) throws APIException {
+        if (str == null || str.isEmpty()) {
+            throw new APIException(new APIError[] {
+                    new APIError("BadDistinctID", "distinctID cannot be null or the empty string.", 400)
+            });
+        }
+    }
+
     private ErrorDocument parseError(Response response) {
         try {
             ErrorDocument error = this.mapper.readValue(response.errorBody().string(), ErrorDocument.class);
             return error;
         } catch (IOException e) {
             return new ErrorDocument(new APIError[]{
-                    new APIError("Unknown error", "", response.code())
+                    new APIError("UnknownError", "", response.code())
             });
         }
     }

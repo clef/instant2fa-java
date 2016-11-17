@@ -40,7 +40,7 @@ try {
 }
 
 // To see whether a user successfully completed 2FA verification:
-boolean isConfirmed = instant2fa.confirmVerification(distinctID, "tok_a639a9a374de400a89b6c0c63683c68e");
+boolean isConfirmed = instant2fa.confirmVerification(distinctID, token);
 
 ```
 

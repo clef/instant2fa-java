@@ -16,7 +16,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId 'com.instant2fa'
             artifactId 'instant2fa'
-            version '0.0.2'
+            version '1.0.0'
 
             from components.java
         }

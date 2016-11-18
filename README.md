@@ -1,6 +1,6 @@
 # instant2fa-java
 
-A Java / Scala client for [Instant2FA](https://instant2fa.com).
+A Java / Scala client for [Instant2FA](https://instant2fa.com). Compatible with Java 7 and above.
 
 ## Installation
 

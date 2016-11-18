@@ -9,13 +9,13 @@ This library is hosted on jcenter, so install it in the usual way:
 `build.gradle`: 
 
 ```
-compile 'com.instant2fa:instant2fa:1.0.0'
+compile 'com.instant2fa:instant2fa:1.0.1'
 ```
 
 `build.sbt`:
 
 ```
-libraryDependencies += "com.instant2fa" % "instant2fa" % "1.0.0",
+libraryDependencies += "com.instant2fa" % "instant2fa" % "1.0.1",
 ```
 
 ## Usage

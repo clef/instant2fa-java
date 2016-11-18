@@ -1,5 +1,18 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+    }
+}
+
+apply plugin: 'com.jfrog.bintray'
 apply plugin: 'java'
 apply plugin: 'maven-publish'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 repositories {
     jcenter()
@@ -16,9 +29,26 @@ publishing {
         mavenJava(MavenPublication) {
             groupId 'com.instant2fa'
             artifactId 'instant2fa'
-            version '0.0.2'
+            version '1.0.1'
 
             from components.java
+        }
+    }
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['mavenJava']
+    pkg {
+        repo = 'instant2fa'
+        name = 'instant2fa'
+        userOrg = user
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/clef/instant2fa-java.git'
+        labels = ['two-factor', 'authentication', '2fa']
+        version {
+            name = '1.0.1'
         }
     }
 }
